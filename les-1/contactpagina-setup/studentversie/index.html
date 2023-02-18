@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <title>Contactpagina</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href=
+          "https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity=
+                "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+        crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body onload="generate()">
+
+<section class="captcha">
+<div id="user-input" class="inline">
+  <input type="text" id="submit"
+         placeholder="Captcha code" />
+</div>
+
+<div class="inline" onclick="generate()">
+  <i class="fas fa-sync"></i>
+</div>
+
+<div id="image" class="inline" selectable="False">
+</div>
+<input type="submit" id="btn" onclick="printmsg()" />
+
+<p id="key"></p>
+</section>
+
+<div class="page">
+  <section class="contact">
+
+    <h1>Contact met Jesse</h1>
+
+    <form action="mailto:huangjesse3@gmail.com" method="post" class="form-contactpagina">
+
+      <div class="form-contactpagina__inputelement fx-col">
+        <label for="name">Naam: </label>
+        <input type="text" name="name" id="name" required minlength="1" maxlength="1019">
+      </div>
+
+      <div class="form-contactpagina__inputelement fx-col">
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required minlength="5">
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="form-contactpagina__inputelement fx-col">
+        <label for="subject">Onderwerp: </label>
+        <input type="text" name="subject" id="subject" required maxlength="200" placeholder="Maximaal 200 tekens">
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="form-contactpagina__inputelement fx-col">
+        <label for="message">Bericht </label>
+        <textarea name="message" id="message" required maxlength="600" placeholder="Maximaal 600 tekens"></textarea>
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="form-contactpagina__inputelement">
+      <fieldset>
+        <legend>Wil je onze nieuwsbrief ontvangen?</legend>
+        <label><input type="radio" name="newsletter" value="yes" checked/> Ja, graag!</label>
+        <label><input type="radio" name="newsletter" value="no" /> Nee, een andere keer</label>
+      </fieldset>
+
+      </div>
+
+      <div class="form-contactpagina__inputelement fx-col">
+        <label for="call-date">Op welke dag kunnen we bellen? </label>
+        <input name="call-date" type="date" id="call-date">
+      </div>
+
+      <div class="form-contactpagina__inputelement">
+        <input type="submit" value="Verstuur!">
+      </div>
+
+/*student uitwerking*/
+
+
+    </form>
+
+
+  </section>
+</div>
+
+<script src="scripts/form-versturen.js"></script>
+</body>
