@@ -10,8 +10,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LuogOiu4wBkPkRZpo2T9PEfrbF" />
   <component name="ProjectViewState">
@@ -20,10 +30,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/School/Web Development/Client Technologie/Tasker opdrachten/WebDevReparatie",
+    "last_opened_file_path": "C:/School/Web Development/Client Technologie/Tasker opdrachten/WebDevReparatie/les-1/contactpagina-setup/studentversie/stylesheets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -31,6 +42,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie\stylesheets" />
+      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie\scripts" />
+      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -39,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676730438814</updated>
-      <workItem from="1676730440112" duration="636000" />
+      <workItem from="1676730440112" duration="4534000" />
     </task>
     <servers />
   </component>
