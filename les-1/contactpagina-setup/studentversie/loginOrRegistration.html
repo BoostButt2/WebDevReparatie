@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+  <link rel="stylesheet" href="stylesheets/loginRegister.css">
+</head>
+<body>
+
+<div class="container">
+
+<!--  Login-->
+  <form class="form form--hidden" id="login">
+    <h1 class="form__title">Login</h1>
+    <div class="form__message form__message--error"></div>
+
+    <div class="form__input-group">
+      <label for="username">Username: </label>
+      <input class="form__input" type="text" name="username" id="username" autofocus placeholder="Username">
+    </div>
+
+    <div class="form__input-group">
+      <label for="password">Password: </label>
+      <input class="form__input" type="password" name="password" id="password" placeholder="Password">
+    </div>
+
+    <button class="form__button" type="submit">Login</button>
+
+    <p class="form__text">
+      <a href="#" class="form__link">Forgot password</a>
+    </p>
+
+    <p class="form__text">
+      <a id="linkRegister" class="form__link">Create account</a>
+    </p>
+
+  </form>
+<!--Register-->
+  <form class="form" id="CreateAccount">
+    <h1 class="form__title">Create account</h1>
+    <div class="form__message form__message--error"></div>
+
+    <div class="form__input-group">
+      <label for="registerUsername">Username: </label>
+      <input class="form__input" type="text" id="registerUsername" autofocus placeholder="Username" required minlength="5" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form__input-group">
+      <label for="registerEmail">Email: </label>
+      <input class="form__input" type="email" id="registerEmail" autofocus placeholder="Email" required minlength="5" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form__input-group">
+      <label for="registerPassword">Password: </label>
+      <input class="form__input" type="password" id="registerPassword" placeholder="Password" required minlength="8" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form__input-group">
+      <label for="confirmPassword">Confirm password: </label>
+      <input class="form__input" type="password" id="confirmPassword" placeholder="Confirm password" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <button class="form__button" type="submit">Register</button>
+
+    <p class="form__text">
+      <a id="linkLogin" class="form__link">Already have an account? Login</a>
+    </p>
+
+  </form>
+</div>
+
+<script src="scripts/loginRegister.js"></script>
+</body>
+</html>

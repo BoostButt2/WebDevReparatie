@@ -14,6 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -35,6 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/School/Web Development/Client Technologie/Tasker opdrachten/WebDevReparatie/les-1/contactpagina-setup/studentversie/stylesheets",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -48,6 +51,10 @@
       <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie\scripts" />
       <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie\images" />
+      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -57,7 +64,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676730438814</updated>
-      <workItem from="1676730440112" duration="4534000" />
+      <workItem from="1676730440112" duration="5448000" />
+      <workItem from="1678183404634" duration="321000" />
+      <workItem from="1678183740364" duration="11568000" />
     </task>
     <servers />
   </component>
