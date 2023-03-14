@@ -1,0 +1,34 @@
+/*#target{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: red;
+    display: inline-block;
+    animation-name: growShrink;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}*/
+.container{
+    width: 800px;
+    height: 480px;
+    background-size: cover;
+    display: flex;
+    position: relative;
+}
+
+.targetImg{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    animation-name: growShrink;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes growShrink {
+    0% {transform: scale(0)}
+    50%{transform: scale(1)}
+    100%{transform: scale(0); display: none}
+}

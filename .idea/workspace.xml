@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -36,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/School/Web Development/Client Technologie/Tasker opdrachten/WebDevReparatie/les-1/contactpagina-setup/studentversie/stylesheets",
+    "last_opened_file_path": "C:/School/Web Development/Client Technologie/Week 5/template-js-vite-vanilla",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,7 +66,7 @@
       <updated>1676730438814</updated>
       <workItem from="1676730440112" duration="5448000" />
       <workItem from="1678183404634" duration="321000" />
-      <workItem from="1678183740364" duration="11568000" />
+      <workItem from="1678183740364" duration="52272000" />
     </task>
     <servers />
   </component>
