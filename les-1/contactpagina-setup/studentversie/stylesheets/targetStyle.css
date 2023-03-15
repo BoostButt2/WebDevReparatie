@@ -16,6 +16,18 @@
     position: relative;
 }
 
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: shrink;
+    animation-duration: 1s;
+}
+
 .targetImg{
     height: 50px;
     width: 50px;
@@ -26,6 +38,10 @@
     animation-iteration-count: infinite;
 }
 
+@keyframes shrink {
+    0%{transform: scale(1)}
+    100%{transform: scale(0); display: none}
+}
 
 @keyframes growShrink {
     0% {transform: scale(0)}

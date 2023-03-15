@@ -2,6 +2,7 @@ const template = document.createElement('template');
 template.innerHTML = `
 <h1 id="lives"></h1>
 <h1 id="points"></h1>
+<h1 id="clicks"></h1>
 <div class="container" id="aimGame">
 </img>
 `
@@ -9,10 +10,13 @@ template.innerHTML = `
 class Target extends HTMLElement{
     lives;
     points;
+    clicks;
+    hits;
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
+        this.shadowRoot.querySelector(".container").onclick = e => this.markShot();
         this.attachStyleSheets();
         this.className = "hidden";
         document.getElementById("b_startGame").onclick = e => this.startGame();
@@ -41,8 +45,10 @@ class Target extends HTMLElement{
         this.shadowRoot.querySelector(".container").style.backgroundImage = backgroundImageUrl;
         this.points = 0;
         this.lives = 3;
+        this.clicks = 0;
         this.shadowRoot.getElementById("lives").innerText = "Lives: " + this.lives.toString();
         this.shadowRoot.getElementById("points").innerText = "Points: " + this.points.toString();
+        this.shadowRoot.getElementById("clicks").innerText = "Hitpercentage: " + this.calculateHitPercentage().toString() + "%";
         document.getElementById("singleplayer__menu").classList.add("hidden");
         document.querySelector("shooting-target").classList.remove("hidden");
         this.spawnTargets();
@@ -76,7 +82,9 @@ class Target extends HTMLElement{
                 _this.shadowRoot.getElementById("lives").innerText = "Lives: " + _this.lives.toString();
                 //removes all target from screen when the player is out of lives
                 if(_this.lives == 0){
+                    _this.shadowRoot.querySelector(".container").style.filter = "brightness(40%)"
                     _this.shadowRoot.querySelector(".container").innerHTML = "Game Over";
+                    _this.shadowRoot.querySelector(".container").onclick = "";
                 }
             }
         }, 3500, this);
@@ -93,6 +101,23 @@ class Target extends HTMLElement{
     removeTarget(target){
         target.name = "dead";
         target.remove();
+    }
+
+    calculateHitPercentage(){
+        if(this.points == 0){
+            return 0
+        }
+        return Math.round(this.points/this.clicks * 1000) / 10;
+    }
+    //marks the click location(maybe for later)
+    markShot(e){
+        this.clicks++;
+        this.shadowRoot.getElementById("clicks").innerText = "Hitpercentage: " + this.calculateHitPercentage().toString() + "%";
+        /*        var dot = document.createElement("div");
+                dot.className = "dot";
+                dot.style.top = (e.clientY) + "4px";
+                dot.style.left = (e.clientX) + "4px";
+                this.shadowRoot.querySelector(".container").appendChild(dot)*/
     }
 }
 
