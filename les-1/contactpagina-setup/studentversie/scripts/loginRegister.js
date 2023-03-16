@@ -66,19 +66,65 @@ confirmPassword.addEventListener("input", (event) => {
 formRegister.addEventListener("submit", async(event) =>{
     event.preventDefault();
     let userId = uuidv4();
+    let hashedPassword = password.value.hashCode().toString();
 
-    let response = await fetch('https://localhost:7133/api/User/create', {
+    await fetch('https://localhost:7133/api/User/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
             "Accept": "Application/json"},
-        body: JSON.stringify({Userid: userId.toString(), Username: username.value, Password: password.value, Role: "player", score: 0, Email: email.value})
-    });
-    alert("Account is aangemaakt!");
+        body: JSON.stringify({Userid: userId.toString(), Username: username.value, Password: hashedPassword, Role: "player", score: 0, Email: email.value})
+    })
+        .then(response => {
+            if(response.ok){
+                alert("Account has been created");
+                linkLogin.click();
+            }
+            else {
+                response.json().then(data => alert(data.detail));
+            }
+        });
 });
 
 formLogin.addEventListener("submit", async (event) =>{
     event.preventDefault();
-})
+    let userId = uuidv4();
+    let hashedPassword = loginPassword.value.hashCode().toString();
+
+    await fetch('https://localhost:7133/api/User/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json',
+            "Accept": "Application/json"},
+        body: JSON.stringify({Userid: userId.toString(), Username: loginUsername.value, Password: hashedPassword, Role: "player", score: 0, Email: ""})
+    })
+        .then(response => {
+            if(response.ok){
+                alert("Login succesful");
+                window.location.replace("singleplayer.html");
+            }
+            else {
+                response.json().then(data => alert(data.detail));
+            }
+        })
+
+/*    console.log(fetch());
+    let p = new Promise((resolve, reject) => {
+        let a = 11 + 1;
+        if(a == 2){
+            resolve("succes");
+        }
+        else {
+            reject("failed");
+        }*/
+/*
+    })
+*/
+
+/*    p.then((message) => {
+        console.log("in then " + message)
+    }).catch((message) => {
+        console.log("in catch " + message)
+    })*/
+});
 
 function addConfirmPasswordError(){
     if (password.value == confirmPassword.value) {
