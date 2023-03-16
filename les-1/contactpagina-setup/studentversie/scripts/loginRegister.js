@@ -1,3 +1,4 @@
+/*import DOMPurify from 'dompurify';*/
 const formLogin = document.getElementById("login");
 const formRegister = document.getElementById("CreateAccount");
 //username and password from the login form
@@ -35,6 +36,7 @@ username.addEventListener("input", (event) => {
         username.className = "form__input form__input--error";
         showUsernameError();
     }
+    username.value = username.value.replace(/[^\w\s]/gi, '_').trim();
 });
 
 password.addEventListener("input", (event) => {
@@ -63,6 +65,7 @@ confirmPassword.addEventListener("input", (event) => {
     addConfirmPasswordError();
 });
 
+//Register account
 formRegister.addEventListener("submit", async(event) =>{
     event.preventDefault();
     let userId = uuidv4();
@@ -72,7 +75,7 @@ formRegister.addEventListener("submit", async(event) =>{
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
             "Accept": "Application/json"},
-        body: JSON.stringify({Userid: userId.toString(), Username: username.value, Password: hashedPassword, Role: "player", score: 0, Email: email.value})
+        body: JSON.stringify({Userid: userId.toString(), Username: username.value.replace(/[^\w\s]/gi, '_').toString(), Password: hashedPassword, Role: "player", score: 0, Email: email.value})
     })
         .then(response => {
             if(response.ok){
@@ -85,6 +88,7 @@ formRegister.addEventListener("submit", async(event) =>{
         });
 });
 
+//Login
 formLogin.addEventListener("submit", async (event) =>{
     event.preventDefault();
     let userId = uuidv4();
@@ -94,7 +98,7 @@ formLogin.addEventListener("submit", async (event) =>{
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
             "Accept": "Application/json"},
-        body: JSON.stringify({Userid: userId.toString(), Username: loginUsername.value, Password: hashedPassword, Role: "player", score: 0, Email: ""})
+        body: JSON.stringify({Userid: userId.toString(), Username: loginUsername.value.replace(/[^\w\s]/gi, '_').trim(), Password: hashedPassword, Role: "player", score: 0, Email: ""})
     })
         .then(response => {
             if(response.ok){
@@ -105,25 +109,6 @@ formLogin.addEventListener("submit", async (event) =>{
                 response.json().then(data => alert(data.detail));
             }
         })
-
-/*    console.log(fetch());
-    let p = new Promise((resolve, reject) => {
-        let a = 11 + 1;
-        if(a == 2){
-            resolve("succes");
-        }
-        else {
-            reject("failed");
-        }*/
-/*
-    })
-*/
-
-/*    p.then((message) => {
-        console.log("in then " + message)
-    }).catch((message) => {
-        console.log("in catch " + message)
-    })*/
 });
 
 function addConfirmPasswordError(){
@@ -153,9 +138,11 @@ function showEmailError() {
 
 function showPasswordError() {
     if (password.validity.valueMissing) {
-        passwordError.textContent = "You need to enter a password address.";
+        passwordError.textContent = "You need to enter a password.";
     } else if (password.validity.tooShort) {
         passwordError.textContent = `Password should be at least ${password.minLength} characters, you entered ${password.value.length}.`;
+    } else if(password.validity.patternMismatch){
+        passwordError.textContent = "Password must contain atleast one uppercase, one lowercase and a number ";
     }
     passwordError.className = "error active";
 }

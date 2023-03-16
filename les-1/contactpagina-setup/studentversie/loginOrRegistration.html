@@ -54,7 +54,7 @@
 
     <div class="form__input-group">
       <label for="registerPassword">Password: </label>
-      <input class="form__input" type="password" id="registerPassword" placeholder="Password" required minlength="8" maxlength="2048">
+      <input class="form__input" type="password" id="registerPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required minlength="8" maxlength="2048">
       <span class="error" aria-live="polite"></span>
     </div>
 
@@ -72,7 +72,6 @@
 
   </form>
 </div>
-
-<script src="scripts/loginRegister.js"></script>
+<script type="module" src="scripts/loginRegister.js"></script>
 </body>
 </html>
