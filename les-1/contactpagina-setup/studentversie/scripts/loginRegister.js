@@ -1,4 +1,4 @@
-/*import DOMPurify from 'dompurify';*/
+/*import DOMPurify from './dompurify';*/
 const formLogin = document.getElementById("login");
 const formRegister = document.getElementById("CreateAccount");
 //username and password from the login form
@@ -15,6 +15,10 @@ const emailError = document.querySelector("#registerEmail + span.error");
 const passwordError = document.querySelector("#registerPassword + span.error");
 const confirmPasswordError = document.querySelector("#confirmPassword + span.error");
 const usernameError = document.querySelector("#registerUsername + span.error");
+
+loginUsername.addEventListener("input", (event) =>{
+    username.value = username.value.replace(/[^\w\s]/gi, '_').trim();
+})
 
 email.addEventListener("input", (event) => {
     if (email.validity.valid) {
@@ -93,7 +97,7 @@ formLogin.addEventListener("submit", async (event) =>{
     event.preventDefault();
     let userId = uuidv4();
     let hashedPassword = loginPassword.value.hashCode().toString();
-
+    document.cookie = "username=" + loginUsername.value + "; secure=true; SameSite=secure"
     await fetch('https://localhost:7133/api/User/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
@@ -102,8 +106,11 @@ formLogin.addEventListener("submit", async (event) =>{
     })
         .then(response => {
             if(response.ok){
-                alert("Login succesful");
-                window.location.replace("singleplayer.html");
+                sessionStorage.setItem("username", loginUsername.value);
+                response.json()
+                    .then(data => function (){
+                    })
+                    .then(x => window.location.replace("singleplayer.html"));
             }
             else {
                 response.json().then(data => alert(data.detail));

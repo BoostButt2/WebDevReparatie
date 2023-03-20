@@ -85,6 +85,7 @@ class Target extends HTMLElement{
                     _this.shadowRoot.querySelector(".container").style.filter = "brightness(40%)"
                     _this.shadowRoot.querySelector(".container").innerHTML = "Game Over";
                     _this.shadowRoot.querySelector(".container").onclick = "";
+                    _this.registerScore();
                 }
             }
         }, 3500, this);
@@ -118,6 +119,20 @@ class Target extends HTMLElement{
                 dot.style.top = (e.clientY) + "4px";
                 dot.style.left = (e.clientX) + "4px";
                 this.shadowRoot.querySelector(".container").appendChild(dot)*/
+    }
+
+    uuidv4() {
+        return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        );
+    }
+    async registerScore(){
+        await fetch('https://localhost:7133/api/User/updateScore', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',
+                "Accept": "Application/json"},
+            body: JSON.stringify({Userid: this.uuidv4(), Username: sessionStorage.getItem("username"), Password: "", Role: "player", score: this.points, Email: ""})
+        })
     }
 }
 
