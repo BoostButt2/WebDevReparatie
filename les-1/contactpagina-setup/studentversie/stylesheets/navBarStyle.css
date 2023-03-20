@@ -6,7 +6,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #252c6a;
 }
 
 .topnav a {
@@ -16,14 +16,11 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    border: 1px solid #007f67;
+    background: #009579;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: #009579;
     color: black;
-}
-
-.topnav a.active {
-    background-color: #04AA6D;
-    color: white;
 }
