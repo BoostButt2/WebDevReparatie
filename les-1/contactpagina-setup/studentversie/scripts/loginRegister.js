@@ -98,7 +98,7 @@ formLogin.addEventListener("submit", async (event) =>{
     let userId = uuidv4();
     let hashedPassword = loginPassword.value.hashCode().toString();
 /*    document.cookie = "username=" + loginUsername.value + "; secure=true; SameSite=secure"*/
-    await fetch('https://localhost:7133/api/User/login', {
+    await fetch('https://localhost:7133/api/token', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
             "Accept": "Application/json"},
@@ -107,9 +107,7 @@ formLogin.addEventListener("submit", async (event) =>{
         .then(response => {
             if(response.ok){
                 sessionStorage.setItem("username", loginUsername.value);
-                response.json()
-                    .then(data => function (){
-                    })
+                response.json().then(data => sessionStorage.setItem("jwt", data))
                     .then(x => window.location.replace("mainMenu.html"));
             }
             else {

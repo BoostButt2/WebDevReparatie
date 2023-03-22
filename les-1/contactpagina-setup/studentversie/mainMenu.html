@@ -29,6 +29,11 @@
 
   </div>
 </section>
-
+<script>
+  document.getElementById("logout").addEventListener("click", (event) => {
+    sessionStorage.clear();
+    window.location.replace("loginOrRegistration.html");
+  })
+</script>
 </body>
 </html>

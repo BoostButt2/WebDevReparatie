@@ -1,9 +1,12 @@
 isLoggedIn();
 async function isLoggedIn(){
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "Application/json");
+    headers.append("Authorization", "Bearer " + sessionStorage.getItem("jwt"));
     await fetch('https://localhost:7133/api/User/checkloggedin', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json',
-            "Accept": "Application/json"},
+        headers: headers,
         body: JSON.stringify({Userid: uuidv4(), Username: sessionStorage.getItem("username"), Password: "", Role: "player", score: this.points, Email: ""})
     })
         .then(response => {
