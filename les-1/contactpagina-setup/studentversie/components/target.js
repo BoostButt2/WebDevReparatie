@@ -22,6 +22,7 @@ class Target extends HTMLElement{
         document.getElementById("b_startGame").onclick = e => this.startGame();
     }
 
+
     //Makes one single target
     createElement(){
         let x_position = Math.floor(Math.random() * 94);

@@ -14,9 +14,13 @@
 </div>
 <section class="singleplayer__container">
     <div id="singleplayer__menu">
-        <div class="scoreBoard__container">
-            Scoreboard
-        </div>
+        <table class="scoreBoard" id="bestScores">
+            <thead>
+            <th>Username</th>
+            <th>Score</th>
+            </thead>
+            <tbody id="usersAndScores"></tbody>
+        </table>
         <section class="mapSelection">
             <!--I know it's ugly but I need it to store the background image-->
             <span class="hidden" id="aimMap"></span>
@@ -41,7 +45,7 @@
 
     <shooting-target></shooting-target>
 </section>
-
+<script type="module" src="scripts/firebaseScoreboard.js"></script>
 <script src="components/target.js"></script>
 <script src="scripts/singleplayerMenu.js"></script>
 </body>
