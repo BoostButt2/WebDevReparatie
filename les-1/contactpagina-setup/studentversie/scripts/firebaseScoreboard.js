@@ -1,12 +1,9 @@
-// Import the functions you need from the SDKs you need
+//#region firebase setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-import {getDatabase, ref, get, set, child, onValue, remove} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import {getDatabase, ref, get, set, child, onValue, remove, query, limitToFirst, limitToLast,
+orderByChild, startAt, startAfter, endAt, endBefore, equalTo} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyApHqqGBAlniWQwhUnekMZmkkIGWwALckk",
     authDomain: "aim-trainer-8df85.firebaseapp.com",
@@ -21,14 +18,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase();
-console.log(db);
+//#endregion
 
 let scoreboard = document.getElementById("usersAndScores");
-
-function insertData(){
-    set(ref(db, "Userscores/Pjotr"), {
-        Username: "Pjotr",
-        Score: 4
+function insertData(username, score){
+    set(ref(db, "Userscores/" + username), {
+        Username: username,
+        Score: score
     })
 }
 
@@ -47,6 +43,7 @@ function addPlayerToScoreboard(dbUsername, dbScore){
 }
 
 function addBestPlayers(players){
+    players.reverse();
     scoreboard.innerHTML = "";
     players.forEach(player => {
         addPlayerToScoreboard(player.Username, player.Score)
@@ -54,7 +51,7 @@ function addBestPlayers(players){
 }
 
 function getAllFireBaseScores(){
-    const dbRef = ref(db, "Userscores");
+    const dbRef = query(ref(db, "Userscores"), orderByChild("Score"), limitToLast(5));
 
     onValue(dbRef, (snapshot) => {
         let players = [];

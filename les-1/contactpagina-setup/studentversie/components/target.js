@@ -6,7 +6,36 @@ template.innerHTML = `
 <div class="container" id="aimGame">
 </img>
 `
+//#region firebase setup
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+import {getDatabase, ref, get, set, child, onValue, remove, query, limitToFirst, limitToLast,
+    orderByChild, startAt, startAfter, endAt, endBefore, equalTo} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 
+const firebaseConfig = {
+    apiKey: "AIzaSyApHqqGBAlniWQwhUnekMZmkkIGWwALckk",
+    authDomain: "aim-trainer-8df85.firebaseapp.com",
+    databaseURL: "https://aim-trainer-8df85-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "aim-trainer-8df85",
+    storageBucket: "aim-trainer-8df85.appspot.com",
+    messagingSenderId: "327391990271",
+    appId: "1:327391990271:web:c2d2256c39ce9ff90457ca",
+    measurementId: "G-36EBZD87G2"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase();
+
+function insertData(username, score){
+    set(ref(db, "Userscores/" + username), {
+        Username: username,
+        Score: score
+    })
+}
+
+//#endregion
 class Target extends HTMLElement{
     lives;
     points;
@@ -137,6 +166,11 @@ class Target extends HTMLElement{
             headers: headers,
             body: JSON.stringify({Userid: this.uuidv4(), Username: sessionStorage.getItem("username"), Password: "", Role: "player", score: this.points, Email: ""})
         })
+            .then(response => {
+                if(response.ok){
+                    insertData(sessionStorage.getItem("username"), this.points);
+                }
+            })
     }
 }
 

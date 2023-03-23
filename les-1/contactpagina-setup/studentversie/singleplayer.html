@@ -27,16 +27,18 @@
             <img class="game-map" src="images/Dust2Goose.jpg" id="map1">
             <img class="game-map" src="images/MirageASite.webp">
             <img class="game-map" src="images/InfernoPit.jpg">
+            <img class="game-map" src="images/blackGrid.jpg">
 
             <div style="text-align:center">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
             </div>
 
         </section>
 
-        <button id="b_startGame" onclick="startGame()">
+        <button id="b_startGame">
             Start
         </button>
 
@@ -46,7 +48,7 @@
     <shooting-target></shooting-target>
 </section>
 <script type="module" src="scripts/firebaseScoreboard.js"></script>
-<script src="components/target.js"></script>
+<script type="module" src="components/target.js"></script>
 <script src="scripts/singleplayerMenu.js"></script>
 </body>
 </html>

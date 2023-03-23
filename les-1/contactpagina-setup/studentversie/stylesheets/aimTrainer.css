@@ -3,6 +3,18 @@ body{
     background-size: cover;
 }
 
+.scoreBoard{
+
+}
+td{
+    background: rgba(100, 100, 100, 75%);
+    outline: black solid;
+}
+th{
+    background: rgba(130, 130, 130, 85%);
+    outline: black solid;
+}
+
 .singleplayer__container{
     align-items: center;
     justify-content: center;
