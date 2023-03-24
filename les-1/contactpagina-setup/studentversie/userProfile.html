@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+  <link rel="stylesheet" href="stylesheets/loginRegister.css">
+</head>
+<body>
+<div class="container">
+  <!--Register-->
+  <form class="form" id="CreateAccount">
+    <h1 class="form__title">Edit account</h1>
+    <div class="form__message form__message--error"></div>
+
+    <div class="form__input-group">
+      <label for="registerUsername">Username: </label>
+      <input class="form__input" type="text" id="registerUsername" autofocus placeholder="Username" required minlength="5" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form__input-group">
+      <label for="registerPassword">Password: </label>
+      <input class="form__input" type="password" id="registerPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required minlength="8" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form__input-group">
+      <label for="confirmPassword">Confirm password: </label>
+      <input class="form__input" type="password" id="confirmPassword" placeholder="Confirm password" maxlength="2048">
+      <span class="error" aria-live="polite"></span>
+    </div>
+
+    <button class="form__button" type="submit">Save</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>

@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -53,8 +53,8 @@
       <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie\images" />
       <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie" />
+      <recent name="C:\School\Web Development\Client Technologie\Tasker opdrachten\WebDevReparatie\les-1\contactpagina-setup\studentversie\images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -69,7 +69,7 @@
       <workItem from="1678183404634" duration="321000" />
       <workItem from="1678183740364" duration="77897000" />
       <workItem from="1679046706133" duration="12999000" />
-      <workItem from="1679140567289" duration="44278000" />
+      <workItem from="1679140567289" duration="47893000" />
     </task>
     <servers />
   </component>

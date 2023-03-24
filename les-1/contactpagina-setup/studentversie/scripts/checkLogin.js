@@ -12,6 +12,7 @@ async function isLoggedIn(){
         .then(response => {
             if(!response.ok){
                 window.location.replace("loginOrRegistration.html");
+                sessionStorage.clear();
             }
         })
 
