@@ -1,11 +1,32 @@
 body{
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
     background: url("../images/CsgoWallpaper.png");
     background-size: cover;
 }
 
-.scoreBoard{
-
+button{
+    width: 50%;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+    margin: 5px;
 }
+
+button:hover{
+    background: var(--color-primary-dark);
+}
+
+button:active{
+    transform: scale(0.98);
+}
+
 td{
     background: rgba(100, 100, 100, 75%);
     outline: black solid;

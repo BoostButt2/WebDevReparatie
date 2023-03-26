@@ -1,5 +1,6 @@
 const formRegister = document.getElementById("CreateAccount");
 const username = document.getElementById("registerUsername");
+const email = document.getElementById("h3_email");
 const password = document.getElementById("registerPassword");
 const confirmPassword = document.getElementById("confirmPassword");
 const saveButton = document.querySelector("button");
@@ -60,6 +61,22 @@ formRegister.addEventListener("submit", async(event) =>{
         });
 });
 
+async function getUserInfo(){
+    const headers = new Headers();
+    headers.append("Authorization", "Bearer " + sessionStorage.getItem("jwt"));
+    await fetch('https://localhost:7133/api/User/getbyusername', {
+        method: 'GET',
+        headers: headers
+    })
+        .then(response => {
+            response.json().then(data => {
+                username.value = data.username;
+                email.innerText = data.email;
+            })
+        })
+}
+
+getUserInfo();
 function addConfirmPasswordError(){
     if (password.value == confirmPassword.value) {
         confirmPasswordError.textContent = ""; // Reset the content of the message
