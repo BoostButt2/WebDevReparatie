@@ -15,6 +15,7 @@ const emailError = document.querySelector("#registerEmail + span.error");
 const passwordError = document.querySelector("#registerPassword + span.error");
 const confirmPasswordError = document.querySelector("#confirmPassword + span.error");
 const usernameError = document.querySelector("#registerUsername + span.error");
+var loginCount = 0;
 
 loginUsername.addEventListener("input", (event) =>{
     username.value = username.value.replace(/[^\w\s]/gi, '_').trim();
@@ -94,6 +95,11 @@ formRegister.addEventListener("submit", async(event) =>{
 
 //Login
 formLogin.addEventListener("submit", async (event) =>{
+    if (loginCount >= 5){
+        alert("You have exceeded the maximum login attempts");
+        window.location.href = "https://www.youtube.com/watch?v=2RtI5UEZlzU";
+        return;
+    }
     event.preventDefault();
     let userId = uuidv4();
     let hashedPassword = loginPassword.value.hashCode().toString();
@@ -106,12 +112,14 @@ formLogin.addEventListener("submit", async (event) =>{
     })
         .then(response => {
             if(response.ok){
+                loginCount = 0;
                 sessionStorage.setItem("username", loginUsername.value);
                 response.json().then(data => sessionStorage.setItem("jwt", data))
                     .then(x => window.location.replace("mainMenu.html"));
             }
             else {
-                response.json().then(data => alert(data.detail));
+                loginCount++;
+                response.json().then(data => alert("Username and password don't match"));
             }
         })
 });
