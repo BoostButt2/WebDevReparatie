@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+  <link rel="stylesheet" href="stylesheets/mainMenuStyle.css">
+  <script src="scripts/checkLogin.js"></script>
+</head>
+<body>
+<section>
+  <h1> Aim Trainer</h1>
+  <div class="menu">
+    <a href="singleplayer.html">
+    <button id="singleplayer">
+      Singleplayer
+    </button>
+    </a>
+    <a target="_blank" href="https://www.youtube.com/watch?v=2RtI5UEZlzU">
+    <button id="multiplayer">
+      Multiplayer(Coming soon)
+    </button>
+    </a>
+    <a href="userProfile.html">
+    <button id="profile">
+      Profile
+    </button>
+    </a>
+    <a href="loginOrRegistration.html">
+      <button id="logout">
+        Logout
+      </button>
+    </a>
+
+  </div>
+</section>
+<script>
+  document.getElementById("logout").addEventListener("click", (event) => {
+    sessionStorage.clear();
+    window.location.replace("loginOrRegistration.html");
+  })
+</script>
+<script src="scripts/checkAdmin.js"></script>
+</body>
+</html>

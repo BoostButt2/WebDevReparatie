@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Singleplayer</title>
+    <link rel="stylesheet" href="stylesheets/navBarStyle.css">
+    <link rel="stylesheet" href="stylesheets/aimTrainer.css">
+    <script src="scripts/checkLogin.js"></script>
+</head>
+<body>
+<div class="topnav">
+    <a href="index.html">Home</a>
+    <a class="active" href="">Back</a>
+</div>
+<section class="singleplayer__container">
+    <div id="singleplayer__menu">
+        <table class="scoreBoard" id="bestScores">
+            <thead>
+            <th>Username</th>
+            <th>Score</th>
+            </thead>
+            <tbody id="usersAndScores"></tbody>
+        </table>
+        <section class="mapSelection">
+            <!--I know it's ugly but I need it to store the background image-->
+            <span class="hidden" id="aimMap"></span>
+            <img class="game-map" src="images/Dust2Goose.jpg" id="map1">
+            <img class="game-map" src="images/MirageASite.webp">
+            <img class="game-map" src="images/InfernoPit.jpg">
+            <img class="game-map" src="images/blackGrid.jpg">
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+
+        </section>
+
+        <button id="b_startGame">
+            Start Game
+        </button>
+
+        <div></div>
+    </div>
+
+    <shooting-target></shooting-target>
+</section>
+<script type="module" src="scripts/firebaseScoreboard.js"></script>
+<script type="module" src="components/target.js"></script>
+<script src="scripts/singleplayerMenu.js"></script>
+</body>
+</html>
