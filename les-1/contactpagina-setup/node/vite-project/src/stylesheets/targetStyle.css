@@ -8,6 +8,10 @@
     animation-duration: 5s;
     animation-iteration-count: infinite;
 }*/
+h1{
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 .container{
     width: 800px;
     height: 480px;

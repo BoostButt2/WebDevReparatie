@@ -9,7 +9,6 @@ async function getUserInfo(){
         .then(response => {
             response.json().then(data => {
                 data.forEach(function (user){
-                    console.log(user)
                     let userForm = document.createElement("form");
                     let userItem = document.createElement("li")
                     let roleLabel = document.createElement("label");
